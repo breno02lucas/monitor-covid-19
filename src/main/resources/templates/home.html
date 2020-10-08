@@ -1,0 +1,54 @@
+<h1>  </h1>
+
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+  <head>
+  
+    <title> Monitor COVID-19 pelo mundo </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    
+    <style>
+    	header{
+    		text-align: center;
+    	}
+    	th, td{
+    		text-align: center;
+    	}
+    </style>
+    
+  </head>
+
+  <body>
+  	
+  	<header>
+	  	<h1>Monitor COVID-19 pelo mundo</h1> 
+	  	<h3>Fique por dentro do COVID-19</h3> 
+  	</header>
+  	
+  	<div class="jumbotron jumbotron-fluid">
+	  <div class="container">
+	    <h1 class="display-4" th:text="${totalReportedCases}"></h1>
+	    <p class="lead">Total de casos reportados em todo o mundo.</p>
+	  </div>
+	</div>
+    
+    <table>
+    	<tr>    	
+    		<th>País</th>
+    		<th>Total de Casos Reportados</th>
+    	</tr>
+    	
+    	<!-- Pegamos o atributo do módulo  -->
+    	<tr th:each="cell : ${locationStats}">
+    		<td th:text="${cell.country}"></td> 
+    		<td th:text="${cell.latestTotalCases}"></td> 	
+    	</tr>    
+    	
+    </table>
+  
+  </body>
+
+</html>
